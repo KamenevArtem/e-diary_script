@@ -22,10 +22,11 @@ from datacenter.models import Mark
 from datacenter.models import Chastisement
 from datacenter.models import Lesson
 from datacenter.models import Commendation
+from correct_diary import get_student_card
 from correct_diary import fix_marks
 from correct_diary import remove_chastisement
 from correct_diary import create_recomendation
-from correct_diary import praises
+from correct_diary import PRAISES
 import random
 ```
 * в зависимости от того, что необходимо сделать, вызовите нужную функцию.
@@ -55,7 +56,7 @@ remove_chastisement("Фамилия и имя необходимого учен�
 Данная функция может внести в электронный дневник ученика похвалу по интересующему предмету за последний урок. Вызвать её можно командой:
 
 ```python
-create_recomendation("Фамилия и имя необходимого ученика", "Интересующий предмет", praises)
+create_recomendation("Фамилия и имя необходимого ученика", "Интересующий предмет")
 ```
 
 Набор похвал хранится в переменной praises. Если пользователь хочет изменить этот набор, то в эту переменную можно перезаписать в shell, введя следующую команду:
