@@ -3,7 +3,6 @@ from datacenter.models import Mark
 from datacenter.models import Chastisement
 from datacenter.models import Lesson
 from datacenter.models import Commendation
-from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 import random
 
 
@@ -40,8 +39,9 @@ def create_recomendation(student_name, subject):
                                     year_of_study=student.year_of_study,
                                     group_letter=student.group_letter
                                     ).order_by('-date')
-    if len(lessons) == 0:
+    if not lessons.first():
         print("Введеный Вами урок не существует")
+        return
     else:
         last_lesson = lessons.first()
         lesson_subject = last_lesson.subject
